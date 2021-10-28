@@ -1,0 +1,157 @@
+html,
+body {
+  background-color: #fff;
+}
+
+// rem
+// html {
+//   font-size: calc(100vw / 100);
+// }
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// display
+$display-types: (
+  flex: flex,
+  block: block,
+  inline: inline,
+  inline-block: inline-block
+);
+@each $dKey, $dSize in $display-types {
+  .d-#{$dKey} {
+    display: $dSize;
+  }
+}
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly
+);
+
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+@each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+
+@each $key, $value in $flex-ai {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+
+// 字体大小
+$font-sizes: (
+  10: 10px,
+  12: 12px,
+  14: 14px,
+  16: 16px
+);
+
+@each $sizeKey, $size in $font-sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size;
+  }
+}
+
+/* 间距*/
+$spacing-types: (
+  m: margin,
+  p: padding
+);
+$spacing-sizes: (
+  0: 0px,
+  1: 1px,
+  2: 2px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+  10: 10px,
+  12: 12px,
+  14: 14px,
+  16: 16px,
+  18: 18px,
+  20: 20px
+);
+$spacing-directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+
+@each $tKey, $tValue in $spacing-types {
+  // .m-1 == margin:1px
+  @each $sKey, $sValue in $spacing-sizes {
+    .#{$tKey}-#{$sKey} {
+      #{$tValue}: $sValue;
+    }
+  }
+  //.mt-1 == margin-top:1px
+  @each $dKey, $dValue in $spacing-directions {
+    @each $sKey, $sValue in $spacing-sizes {
+      .#{$tKey}#{$dKey}-#{$sKey} {
+        #{$tValue}-#{$dValue}: $sValue;
+      }
+    }
+  }
+  //.my-1 == margin-top:1px;margin-bottom:1px
+  //.mx-1 == margin-left:1px;margin-right:1px
+  @each $sKey, $sValue in $spacing-sizes {
+    .#{$tKey}x-#{$sKey} {
+      #{$tValue}-left: $sValue;
+      #{$tValue}-right: $sValue;
+    }
+    .#{$tKey}y-#{$sKey} {
+      #{$tValue}-top: $sValue;
+      #{$tValue}-bottom: $sValue;
+    }
+  }
+}
+
+.scroll-content {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  // 火狐浏览器滚动条宽度修改
+  scrollbar-width: thin; //设置滚动条宽度
+  // scrollbar-color: $scrollBarColor rgba(202, 28, 28, 0);
+}
+::-moz-scrollbar {
+  width: 10px; /*对垂直流动条有效*/
+  height: 10px; /*对水平流动条有效*/
+}
+// chrome Edge
+::-webkit-scrollbar {
+  width: 10px; /*对垂直流动条有效*/
+  height: 10px; /*对水平流动条有效*/
+}
+// /*定义滚动条的轨道颜色、内阴影及圆角*/
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0);
+  border-radius: 3px;
+}
+/*定义滑块颜色、内阴影及圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  -webkit-box-shadow: inset 0 0 6px rgba(56, 98, 189, 0.3);
+  // background-color: $scrollBarColor;
+}

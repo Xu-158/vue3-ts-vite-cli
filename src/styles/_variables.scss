@@ -1,0 +1,40 @@
+/* Base color */
+$blue: #324157;
+$light-blue: #3a71a8;
+$red: #c03639;
+$pink: #e65d6e;
+$green: #30b08f;
+$tiffany: #4ab7bd;
+$yellow: #fec171;
+$panGreen: #30b08f;
+$font-white: #ffffff;
+
+$primary: #1c222b;
+/* Layout */
+// 侧边导航栏背景颜色|顶部导航栏背景颜色
+// $sideBarBgColor: #1c222b;
+$sideBarBgColor: $primary;
+// 侧边导航栏字体颜色
+$sideBarFontColor: #9da5b4;
+// 侧边导航栏激活状态字体颜色
+$sideBarActiveFontColor: #19be6b;
+// 顶部导航栏高度
+$navBarHeight: 50px;
+// 侧边导航展开宽度
+$sideBarOpenedWidth: 175px;
+// 侧边导航收缩宽度
+$sideBarShrinkWidth: 55px;
+
+// 滚动条滑块颜色
+$scrollBarColor: rgba(5, 22, 46, 0.3);
+
+// https://mattferderer.com/use-sass-variables-in-typescript-and-javascript:
+:export {
+  primary: $primary;
+  sideBarBgColor: $sideBarBgColor;
+  sideBarFontColor: $sideBarFontColor;
+  sideBarActiveFontColor: $sideBarActiveFontColor;
+  navBarHeight: $navBarHeight;
+  sideBarOpenedWidth: $sideBarOpenedWidth;
+  sideBarShrinkWidth: $sideBarShrinkWidth;
+}
